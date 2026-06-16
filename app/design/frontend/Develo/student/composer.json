@@ -1,0 +1,14 @@
+{
+    "name": "develo/student-theme",
+    "description": "Develo Student theme based on Hyvä",
+    "type": "magento2-theme",
+    "license": "proprietary",
+    "require": {
+        "hyva-themes/magento2-default-theme": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    }
+}
