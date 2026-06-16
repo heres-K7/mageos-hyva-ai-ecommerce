@@ -1,0 +1,18 @@
+{
+    "name": "develo/module-top-rated-collage",
+    "description": "Huge two-product collage of the highest-rated products for Hyvä storefronts",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1",
+        "magento/module-catalog": "*",
+        "magento/module-review": "*",
+        "hyva-themes/magento2-theme-module": "*"
+    },
+    "autoload": {
+        "files": ["registration.php"],
+        "psr-4": {
+            "Develo\\TopRatedCollage\\": ""
+        }
+    }
+}

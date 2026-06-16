@@ -7,6 +7,8 @@
  */
 
 @source "../../../../../../../../vendor/hyva-themes/magento2-theme-module/src";
+@source "../../../../../../../code/Develo/TopRatedCollage";
+@source "../../../../../../../code/Develo/FreeShippingBanner";
 @source "../../../../../../../../vendor/mage-os/module-rma";
 @source "../../../../../../../../vendor/hyva-themes/magento2-default-theme";
 

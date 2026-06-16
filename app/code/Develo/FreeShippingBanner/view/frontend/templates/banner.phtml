@@ -1,0 +1,53 @@
+<?php
+/**
+ * Develo_FreeShippingBanner
+ *
+ * Dismissible "Free UK shipping over £50" announcement bar shown at the top of
+ * every storefront page. Hyvä compatible: interactivity uses Alpine.js (bundled
+ * with Hyvä) and styling uses the theme's Tailwind utility classes.
+ *
+ * The dismissed state is stored in localStorage so the banner stays hidden on
+ * subsequent page views until the visitor clears it.
+ */
+declare(strict_types=1);
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+// localStorage key holding the "dismissed" flag for this visitor.
+$storageKey = 'develo_free_shipping_banner_dismissed';
+?>
+<div
+    x-data="{
+        dismissed: window.localStorage.getItem('<?= $escaper->escapeJs($storageKey) ?>') === '1',
+        dismiss() {
+            this.dismissed = true;
+            window.localStorage.setItem('<?= $escaper->escapeJs($storageKey) ?>', '1');
+        }
+    }"
+    x-show="!dismissed"
+    x-cloak
+    role="region"
+    aria-label="<?= $escaper->escapeHtmlAttr(__('Shipping promotion')) ?>"
+    class="relative bg-primary text-on-primary"
+>
+    <p class="flex items-center justify-center px-10 py-2 text-center text-sm font-medium">
+        <?= $escaper->escapeHtml(__('Free UK shipping over £50')) ?>
+    </p>
+
+    <button
+        type="button"
+        @click="dismiss()"
+        aria-label="<?= $escaper->escapeHtmlAttr(__('Dismiss banner')) ?>"
+        class="absolute end-3 top-1/2 inline-flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full
+               transition-colors hover:bg-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+             fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 5l10 10M15 5L5 15"/>
+        </svg>
+    </button>
+</div>

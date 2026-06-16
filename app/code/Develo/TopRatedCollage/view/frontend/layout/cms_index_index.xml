@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Develo_TopRatedCollage
+ *
+ * `cms_index_index` is the homepage layout handle, so the collage only renders
+ * on the homepage. It is added to the `content` container with before="-" so it
+ * sits at the very top of the page content, above the standard CMS hero.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block name="develo.top-rated-collage"
+                   class="Magento\Framework\View\Element\Template"
+                   template="Develo_TopRatedCollage::collage.phtml"
+                   before="-"/>
+        </referenceContainer>
+    </body>
+</page>

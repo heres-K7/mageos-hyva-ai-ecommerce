@@ -1,10 +1,40 @@
 .product-item {
     --price-font-size: 1.25em;
 
+    /* Rounded corners on the listing card (base theme uses radius-lg) */
+    --card-radius: var(--radius-2xl);
+
     .price-from,
     .price-to {
         --price-font-size: 1em;
     }
+
+    /* Subtle shadow on hover — overrides the card component default of shadow-lg */
+    &.card-interactive:is(:hover, :focus-within) {
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Slim shadow + slight rounding on the product picture so it stands out
+       from the other elements in the card */
+    & .product-item-photo img {
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+    }
+
+    /* Price in black (theme foreground); keep the struck-through old price muted */
+    & .price-box .price {
+        color: var(--color-fg);
+    }
+
+    & .price-box .old-price .price {
+        color: var(--color-fg-secondary);
+    }
+}
+
+/* Category page heading: a touch bolder than the base font-bold (700 -> 800).
+   800 is within the Syne weight range loaded from Google Fonts (400..800). */
+.catalog-category-view .page-title {
+    font-weight: 800;
 }
 
 .product-info-main {

@@ -12,4 +12,15 @@
         --tw-ring-offset-width: 2px;
         min-width: 40px;
     }
+
+    /*
+     * Colour / image swatches → round dots instead of large squares.
+     * Hyvä applies `w-6 h-6` only to non-text (colour/image) swatches
+     * (see Magento_Swatches/templates/product/swatch-item.phtml), so that
+     * class targets them without affecting the text/size swatches.
+     */
+    .swatch-option.w-6 {
+        @apply rounded-full p-0;
+        min-width: 0;
+    }
 }

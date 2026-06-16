@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Develo_FreeShippingBanner
+ *
+ * `default.xml` applies to every storefront page. The banner is added to the
+ * `after.body.start` container, which Magento renders immediately after the
+ * opening <body> tag — above the header — so the banner sits at the very top
+ * of every page.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block name="develo.free-shipping-banner"
+                   class="Magento\Framework\View\Element\Template"
+                   template="Develo_FreeShippingBanner::banner.phtml"/>
+        </referenceContainer>
+    </body>
+</page>
